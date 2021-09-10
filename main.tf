@@ -143,9 +143,9 @@ resource "aws_iam_role_policy" "lambda" {
    {
       "Effect": "Allow",
       "Action": [
-          "autoscaling:Describe*"
+          "autoscaling:DescribeAutoScalingGroups"
       ],
-      "Resource": "${data.aws_autoscaling_group.this.arn}"
+      "Resource": "*"
    }]
 }
 EOF
