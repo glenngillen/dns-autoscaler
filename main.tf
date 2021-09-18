@@ -133,6 +133,21 @@ resource "aws_iam_role_policy" "lambda" {
 {
    "Version": "2012-10-17",
    "Statement": [
+    {
+      "Action": "logs:CreateLogGroup",
+      "Effect": "Allow",
+      "Resource": "arn:aws:logs:us-east-1:*:*"
+    },
+    {
+      "Action": [
+        "logs:CreateLogStream",
+        "logs:PutLogEvents"
+      ],
+      "Effect": "Allow",
+      "Resource": [
+        "arn:aws:logs:us-east-1:*:log-group:/aws/lambda/*"
+      ]
+   },
    {
       "Effect": "Allow",
       "Action": [        
